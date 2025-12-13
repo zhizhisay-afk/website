@@ -3932,12 +3932,10 @@ void main() {
     float dist = distance(pixelCoords, gridPixel);
  
     float circle = 1.0 - smoothstep(radius - cellSize * 0.02, radius + cellSize * 0.02, dist);
-    vec3 col = vec3(0.949, 0.949, 0.949);
+   vec3 dotColor = vec3(0.949, 0.949, 0.949); 
 
-
-    gl_FragColor = vec4(circle * col, 1.);
+    gl_FragColor = vec4(dotColor * circle + vec3(1.0, 1.0, 1.0) * (1.0 - circle), 1.0);
   
-
 }
 
-`;function Vk(n,e,t=1){const i=gk(o=>o.viewport),r=e*(i.aspect>n/e?i.width/n:i.height/e);return[n*(i.aspect>n/e?i.width/n:i.height/e)*t,r*t,1]}const Hk=()=>{const[n,e]=Je.useState();Je.useEffect(()=>{const s=document.getElementById("video");if(s){console.log(s),s.play();const o=new yC(s);e(o)}},[]);const[t,i]=Vk(1920,1080),{material:r}=Je.useMemo(()=>({material:new or({uniforms:{u_texture:{value:n},u_resolution:{value:new he(window.innerWidth,window.innerHeight)},u_videoAspect:{value:new he(t,i)},time:{value:1}},vertexShader:zk,fragmentShader:Bk})}),[n]);return vk(()=>{r.uniforms.u_resolution.value=[t,i]}),Mn.jsx("mesh",{scale:[t,i,1],material:r,children:Mn.jsx("planeGeometry",{})})};function Gk(){return Mn.jsxs("div",{className:"relative h-screen overflow-hidden",children:[Mn.jsx("video",{id:"video",muted:!0,autoPlay:!0,hidden:!0,loop:!0,src:"video.webm"}),Mn.jsx(kk,{className:"absolute inset-0 h-screen",children:Mn.jsx(Hk,{})})]})}iA(document.getElementById("root")).render(Mn.jsx(Je.StrictMode,{children:Mn.jsx(Gk,{})}));
+`;function Vk(n,e,t=1){const i=gk(o=>o.viewport),r=e*(i.aspect>n/e?i.width/n:i.height/e);return[n*(i.aspect>n/e?i.width/n:i.height/e)*t,r*t,1]}const Hk=()=>{const[n,e]=Je.useState();Je.useEffect(()=>{const s=document.getElementById("video");if(s){console.log(s),s.play();const o=new yC(s);e(o)}},[]);const[t,i]=Vk(1920,1080),{material:r}=Je.useMemo(()=>({material:new or({uniforms:{u_texture:{value:n},u_resolution:{value:new he(window.innerWidth,window.innerHeight)},u_videoAspect:{value:new he(t,i)},time:{value:1}},vertexShader:zk,fragmentShader:Bk})}),[n]);return vk(()=>{r.uniforms.u_resolution.value=[t,i]}),Mn.jsx("mesh",{scale:[t,i,1],material:r,children:Mn.jsx("planeGeometry",{})})};function Gk(){return Mn.jsxs("div",{className:"relative h-screen overflow-hidden",children:[Mn.jsx("video",{id:"video",muted:!0,autoPlay:!0,hidden:!0,loop:!0,src:"video.webm"}),Mn.jsx(Hk,{}),Mn.jsx(kk,{})]})}iA(document.getElementById("root")).render(Mn.jsx(Je.StrictMode,{children:Mn.jsx(Gk,{})}));
