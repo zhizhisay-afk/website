@@ -3932,7 +3932,7 @@ void main() {
     float dist = distance(pixelCoords, gridPixel);
  
     float circle = 1.0 - smoothstep(radius - cellSize * 0.02, radius + cellSize * 0.02, dist);
-    vec3 col = vec3(0.5, 0.5, 0.8);
+    vec3 col = vec3(0.949, 0.949, 0.949);
 
 
     gl_FragColor = vec4(circle * col, 1.);
